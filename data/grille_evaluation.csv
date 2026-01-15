@@ -1,0 +1,6 @@
+critere,poids,description,score_excellent,score_bon,score_acceptable,score_insuffisant
+exactitude,30%,"Présence des informations clés attendues dans la réponse",">= 80% des mots-clés attendus","60-79% des mots-clés","40-59% des mots-clés","< 40% des mots-clés"
+pertinence,20%,"La réponse est en rapport avec la question posée","Réponse directement liée, complète","Réponse liée mais partielle","Réponse tangentiellement liée","Réponse hors sujet"
+absence_hallucination,20%,"La réponse ne contient pas d'informations inventées","Aucune information douteuse","Informations vérifiables","Quelques éléments suspects","Informations manifestement fausses"
+latence,15%,"Temps de réponse du système","< 500ms","500ms - 1000ms","1000ms - 2000ms","> 2000ms"
+aveu_ignorance,15%,"Capacité à reconnaître les questions hors périmètre","Détection correcte (hors sujet)","N/A (question dans périmètre)","N/A (question dans périmètre)","Pas de détection (répond à tort)"

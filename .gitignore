@@ -1,0 +1,106 @@
+# ==================== PYTHON ====================
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+dist/
+*.egg-info/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ==================== DATABASE ====================
+*.db
+*.sqlite
+*.sqlite3
+databases/*.db
+!databases/.gitkeep
+
+# ==================== IDE ====================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+
+# ==================== ENVIRONMENT ====================
+.env
+.env.local
+.env.*.local
+
+# ==================== TESTS ====================
+.pytest_cache/
+htmlcov/
+.coverage
+*.cover
+.hypothesis/
+.tox/
+
+# ==================== OS ====================
+.DS_Store
+Thumbs.db
+desktop.ini
+*.bak
+
+# ==================== LOGS ====================
+*.log
+logs/
+
+# ==================== JUPYTER ====================
+.ipynb_checkpoints/
+*.ipynb
+
+# ==================== SOLUTIONS (À DÉCOMMENTER PROGRESSIVEMENT) ====================
+# Dans scripts/
+scripts/evaluate_results_solution.py
+scripts/run_benchmark_solution.py
+
+# Dans src/strategies/
+src/strategies/strategy_a_llm_solution.py
+src/strategies/strategy_b_rag_solution.py
+src/strategies/strategy_c_qa_solution.py
+
+# Dans src/utils/
+src/utils/embeddings_solution.py
+src/utils/llm_client_solution.py
+
+# ==================== DOCUMENTS FORMATEUR ====================
+# Documents pédagogiques à ne pas publier
+# docs/formateur/
+docs/NOTE_CADRAGE_exemple.md
+docs/RAPPORT_BENCHMARK_exemple.md
+docs/RAPPORT_VEILLE_exemple.md
+
+# ==================== RESULTATS DE BENCHAMRKS ====================
+# Documents à ne pas publier
+results/
+
+# ==================== FICHIERS DES TESTS ====================
+# Documents à ne pas publier
+src/tests/test_api.py
+src/tests/test_regression.py
+src/tests/test_simple.py
+src/tests/test_strategies.py
+
+# ==================== DONNÉES SENSIBLES ====================
+# Clés API et secrets (ne JAMAIS commiter)
+*.key
+*.pem
+*.cert
+secrets/
+.secrets/
+
+# ==================== BUILD & DEPLOY ====================
+*.egg
+*.whl
+.eggs/
+*.manifest
+*.spec

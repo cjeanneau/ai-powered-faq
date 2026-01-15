@@ -1,0 +1,32 @@
+# Framework API
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+
+# LLM et NLP
+huggingface-hub>=0.16.0
+transformers>=4.30.0
+sentence-transformers>=2.2.0
+torch>=2.0.0
+
+# Base vectorielle (optionnel)
+chromadb>=0.4.0
+numpy>=1.24.0
+
+# Tests
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-asyncio>=0.21.0
+httpx>=0.24.0
+
+# Utilitaires
+python-dotenv>=1.0.0
+requests>=2.31.0
+
+# Logging et monitoring
+structlog>=23.1.0
+
+# Linting (dev)
+ruff>=0.0.280
+black>=23.7.0
