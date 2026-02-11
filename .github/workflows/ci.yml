@@ -10,7 +10,7 @@
 #   - Pull request vers main
 # =============================================================================
 
-name: CI Pipeline 
+name: CI Pipeline
 
 # -----------------------------------------------------------------------------
 # DÉCLENCHEURS
@@ -61,14 +61,30 @@ jobs:
           pip install pytest pytest-cov pytest-asyncio httpx
           echo "✅ Dépendances installées"
       
-      # Étape 5 : Vérifier que les imports fonctionnent
+      # Étape 5 : Vérifier que le secret est accessible (debug)
+      - name: Debug - Check secret availability
+        env:
+          HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
+        run: |
+          echo "🔍 Vérification du secret HF_API_TOKEN..."
+          if [ -z "$HF_API_TOKEN" ]; then
+            echo "❌ HF_API_TOKEN est VIDE ou non défini"
+            echo "   → Vérifiez : Settings > Secrets > Actions > HF_API_TOKEN"
+            exit 1
+          else
+            echo "✅ HF_API_TOKEN est défini (${#HF_API_TOKEN} caractères)"
+          fi
+      
+      # Étape 6 : Vérifier que les imports fonctionnent
       - name: Verify imports
+        env:
+          HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
         run: |
           echo "🔧 Vérification des imports..."
           python -c "from src.api.main import app; print('✅ API importée')"
           python -c "from src.strategies.base import FAQResponse; print('✅ Strategies importées')"
       
-      # Étape 6 : Exécuter les tests unitaires
+      # Étape 7 : Exécuter les tests unitaires
       - name: Run unit tests
         env:
           HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
@@ -76,7 +92,7 @@ jobs:
           echo "🧪 Tests unitaires..."
           pytest tests/unit/ -v --tb=short
       
-      # Étape 7 : Exécuter les tests d'intégration
+      # Étape 8 : Exécuter les tests d'intégration
       - name: Run integration tests
         env:
           HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
@@ -84,7 +100,7 @@ jobs:
           echo "🧪 Tests d'intégration..."
           pytest tests/integration/ -v --tb=short
       
-      # Étape 8 : Exécuter les tests système
+      # Étape 9 : Exécuter les tests système
       - name: Run system tests
         env:
           HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
@@ -92,7 +108,7 @@ jobs:
           echo "🧪 Tests système..."
           pytest tests/systeme/ -v --tb=short
       
-      # Étape 9 : Générer le rapport de couverture
+      # Étape 10 : Générer le rapport de couverture
       - name: Generate coverage report
         env:
           HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
