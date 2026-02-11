@@ -62,6 +62,8 @@ jobs:
       
       # Vérifier que tous les modules s'importent correctement
       - name: Verify imports
+        env:
+          HF_API_TOKEN: ${{ secrets.HF_API_TOKEN }}
         run: |
           echo "🔧 Vérification des imports..."
           python -c "from src.api.main import app"
