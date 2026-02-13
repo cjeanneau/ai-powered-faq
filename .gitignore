@@ -85,6 +85,7 @@ results/
 
 # ==================== FICHIERS API ====================
 # Documents à ne pas publier
+original_Remi/
 #src/api
 
 # ==================== FICHIERS DES TESTS ====================
